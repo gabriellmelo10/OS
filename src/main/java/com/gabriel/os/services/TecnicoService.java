@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gabriel.os.domain.Tecnico;
+import com.gabriel.os.dtos.TecnicoDTO;
 import com.gabriel.os.repositories.TecnicoRepository;
 import com.gabriel.os.services.exceptions.ObjectNotFoundException;
 
@@ -24,5 +25,9 @@ public class TecnicoService {
 
 	public List<Tecnico> findAll() {
 		return this.repository.findAll();
+	}
+	
+	public Tecnico create(TecnicoDTO objDTO) {
+		return this.repository.save(new Tecnico(null, objDTO.getNome(), objDTO.getCpf(), objDTO.getTelefone()));
 	}
 }

@@ -2,6 +2,8 @@ package com.gabriel.os.dtos;
 
 import java.io.Serializable;
 
+import org.hibernate.validator.constraints.br.CPF;
+
 import com.gabriel.os.domain.Tecnico;
 
 public class TecnicoDTO implements Serializable {
@@ -10,8 +12,8 @@ public class TecnicoDTO implements Serializable {
 	private Integer id;
 	private String nome;
 	
-//	@CPF
-//	private String cpf;
+	@CPF
+	private String cpf;
 	private String telefone;
 	
 	public TecnicoDTO() {
@@ -22,7 +24,7 @@ public class TecnicoDTO implements Serializable {
 		super();
 		this.id = obj.getId();
 		this.nome = obj.getNome();
-//		this.cpf = obj.getCpf();
+		this.cpf = obj.getCpf();
 		this.telefone = obj.getTelefone();
 	}
 
@@ -42,13 +44,13 @@ public class TecnicoDTO implements Serializable {
 		this.nome = nome;
 	}
 
-//	public String getCpf() {
-//		return cpf;
-//	}
-//
-//	public void setCpf(String cpf) {
-//		this.cpf = cpf;
-//	}
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
 
 	public String getTelefone() {
 		return telefone;
